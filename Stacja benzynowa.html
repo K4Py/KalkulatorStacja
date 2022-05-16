@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Kalkulator - Stacja Benzynowa</title>
+</head>
+
+<body>
+
+    <div id="tabela">
+        <h2>Stacja benzynowa</h2>
+        <fieldset>
+            <legend><b>Wybierz paliwo, które chcesz zatankować</b></legend>
+
+            <div class="radiobuttons">
+                <label for="paliwo"><input type="radio" name="fuel" id="pb"> Benzyna 95</label>
+                <label for="paliwo"><input type="radio" name="fuel" id="on"> Diesel</label>
+            </div>
+
+            <h4>Ceny poszczególnych paliw</h4>
+            Benzyna 95 - 6.70PLN || Diesel - 7.50PLN
+
+            <div id="obliczenie">
+                <h4>Podaj ilość litrów, które chcesz zatankować.</h4>
+                <input type="number" name="litry" id="litry">
+                <button id="oblicz" onclick="policz()">Oblicz</button>
+                <span id="ilosc"></span>
+            </div>
+
+            <h4>Cena końcowa:</h4>
+            <span id="cena"></span>
+        </fieldset>
+    </div>
+
+    <script>
+        function policz() {
+
+            var ilosc = document.getElementById("litry").value;
+            litry = parseFloat(ilosc);
+            var cena = 0
+
+            if (document.getElementById("pb").checked) {
+                var cena = litry * 6.70;
+                cena = parseFloat(cena);
+                document.getElementById("cena").innerHTML = cena;
+            }
+
+            if (document.getElementById("on").checked) {
+                var cena = litry * 7.50;
+                cena = parseFloat(cena);
+                document.getElementById("cena").innerHTML = cena;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
